@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ControlPlayer : MonoBehaviour {
@@ -8,10 +9,15 @@ public class ControlPlayer : MonoBehaviour {
     public Vector2 velocity;
     public Text countText;
     public Text winText;
+    public Button tryAgainButton;
+    public Text lifesText;
+    public GameObject panel;
     private int count;
     public AudioSource pickupSound;
     public AudioSource backgroundMusic;
     public AudioSource deadSound;
+    static int lifes = 3;
+    private bool isDead = false;
 
 
     bool canShoot = true;
@@ -37,10 +43,11 @@ public class ControlPlayer : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+        Debug.Log(lifes);
         backgroundMusic.Play();
         winText.text = "";
         count = 0;
+        SetLifesText();
         SetCountText();
 
     }
@@ -49,8 +56,13 @@ public class ControlPlayer : MonoBehaviour {
     {
         countText.text = "Count: " + count.ToString();
         if (count >= 2) {
+            panel.SetActive(true);
             winText.text = "You win!";
         }
+    }
+
+    private void SetLifesText() {
+        lifesText.text = "Lifes: " + lifes.ToString();
     }
 
     // Update is called once per frame
@@ -58,7 +70,7 @@ public class ControlPlayer : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F) && canShoot) {
             AudioSource audio = GetComponent<AudioSource>();
             audio.Play();
-            GameObject go = (GameObject) Instantiate(projectile,(Vector2)transform.position + offset * transform.localScale.x, Quaternion.identity);
+            GameObject go = (GameObject)Instantiate(projectile, (Vector2)transform.position + offset * transform.localScale.x, Quaternion.identity);
             go.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x * transform.localScale.x, velocity.y);
             StartCoroutine(ShootingCooldown());
         }
@@ -70,9 +82,21 @@ public class ControlPlayer : MonoBehaviour {
         yield return new WaitForSeconds(1.5F);
         canShoot = true;
     }
+
+    
     private void OnDestroy()
     {
+        isDead = true;
+        panel.SetActive(true);
         backgroundMusic.Stop();
         deadSound.Play();
+        lifes--;
+        if (lifes > -1) {
+            winText.text = "you died!";
+            tryAgainButton.gameObject.SetActive(true);
+        } else
+        {
+            winText.text = "game over!";
+        }
     }
 }

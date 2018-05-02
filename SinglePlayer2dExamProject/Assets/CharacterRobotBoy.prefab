@@ -307,6 +307,9 @@ MonoBehaviour:
   velocity: {x: 5, y: 0}
   countText: {fileID: 0}
   winText: {fileID: 0}
+  tryAgainButton: {fileID: 0}
+  lifesText: {fileID: 0}
+  panel: {fileID: 0}
   pickupSound: {fileID: 0}
   backgroundMusic: {fileID: 0}
   deadSound: {fileID: 0}
