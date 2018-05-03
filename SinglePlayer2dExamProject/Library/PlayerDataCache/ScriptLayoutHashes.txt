@@ -14,7 +14,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 31aaf521b3ef8699466676591ea0efd4 UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 31aaf521b3ef8699466676591ea0efd4 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 df374c01140c2d578bf70cbd60073d1d UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
-d18146896c01ae7a8148c1589bba43ac Assembly-CSharp.dll:.BulletBehaviour
+01f7624aedc12cd20f09b7ffa3e806eb Assembly-CSharp.dll:.BulletBehaviour
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -152,6 +152,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 600bf2432747463c84424edccb3c1d05 Assembly-CSharp.dll:UnityStandardAssets._2D.Camera2DFollow
+8b9f05e49e19b6f3202c3e211aaeb09b Assembly-CSharp.dll:.RestartButtonBehaviour
 a8796ecdc9d5c260bbe32f30c4b10708 Assembly-CSharp.dll:UnityStandardAssets.CrossPlatformInput.TouchPad
-c9b4d4bea933739440e045845e8b85c4 Assembly-CSharp.dll:.ControlPlayer
+fb15dca68616f06bfcada3ff1acecf9c Assembly-CSharp.dll:.ControlPlayer
 a412f64ff4e4667098f82b7fa0bf56e2 Assembly-CSharp.dll:UnityStandardAssets._2D.PlatformerCharacter2D

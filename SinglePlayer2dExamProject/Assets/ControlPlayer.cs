@@ -10,6 +10,7 @@ public class ControlPlayer : MonoBehaviour {
     public Text countText;
     public Text winText;
     public Button tryAgainButton;
+    public Button youWonButton;
     public Text lifesText;
     public GameObject panel;
     private int count;
@@ -43,6 +44,7 @@ public class ControlPlayer : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        Time.timeScale = 1;
         Debug.Log(lifes);
         backgroundMusic.Play();
         winText.text = "";
@@ -56,8 +58,10 @@ public class ControlPlayer : MonoBehaviour {
     {
         countText.text = "Count: " + count.ToString();
         if (count >= 2) {
-            panel.SetActive(true);
             winText.text = "You win!";
+            Time.timeScale = 0;
+            GameObject.Find("AI").SetActive(false);
+            youWonButton.gameObject.SetActive(true);
         }
     }
 
