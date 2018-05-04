@@ -10,6 +10,7 @@ public class BulletBehaviour : MonoBehaviour {
         if (collision.gameObject.name.Equals("AI")) {
             Destroy(collision.gameObject);
             Destroy(gameObject); //if a bullet hits an ai, the ai and the bullet is destroyed
+            
         }
         if (collision.gameObject.name.Equals("Platform"))
         {
