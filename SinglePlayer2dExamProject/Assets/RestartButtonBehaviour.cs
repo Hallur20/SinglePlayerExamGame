@@ -20,6 +20,6 @@ public class RestartButtonBehaviour : MonoBehaviour {
 
     private void RestartScene()
     {
-        SceneManager.LoadScene("_scene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

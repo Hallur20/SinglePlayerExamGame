@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityStandardAssets._2D;
 
 public class ControlPlayer : MonoBehaviour {
 
@@ -27,7 +28,7 @@ public class ControlPlayer : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name.Equals("Lava")) {
+        if (collision.gameObject.name.Equals("Lava") || collision.gameObject.name.Equals("Ice")) {
             Destroy(gameObject);
         }
 
@@ -91,9 +92,11 @@ public class ControlPlayer : MonoBehaviour {
     private void OnDestroy()
     {
         isDead = true;
+            deadSound.Play();
+
         panel.SetActive(true);
         backgroundMusic.Stop();
-        deadSound.Play();
+        
         lifes--;
         if (lifes > -1) {
             winText.text = "you died!";
@@ -102,5 +105,7 @@ public class ControlPlayer : MonoBehaviour {
         {
             winText.text = "game over!";
         }
+        isDead = false;
     }
+   
 }
