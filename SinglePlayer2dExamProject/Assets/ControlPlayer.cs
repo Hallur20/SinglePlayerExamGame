@@ -18,7 +18,7 @@ public class ControlPlayer : MonoBehaviour {
     public AudioSource pickupSound;
     public AudioSource backgroundMusic;
     public AudioSource deadSound;
-    static int lifes = 3;
+    public static int lifes = 3;
     private bool isDead = false;
     private bool isClimbing;
     public float distance;
@@ -121,6 +121,7 @@ public class ControlPlayer : MonoBehaviour {
         } else
         {
             winText.text = "game over!";
+            tryAgainButton.gameObject.SetActive(true);
         }
         isDead = false;
     }

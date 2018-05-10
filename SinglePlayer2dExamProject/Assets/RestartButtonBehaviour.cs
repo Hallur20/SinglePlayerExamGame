@@ -20,6 +20,13 @@ public class RestartButtonBehaviour : MonoBehaviour {
 
     private void RestartScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (ControlPlayer.lifes > -1) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        } else
+        {
+            ControlPlayer.lifes = 3;
+            SceneManager.LoadScene("_scene");
+        }
+        
     }
 }
