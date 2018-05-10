@@ -20,6 +20,9 @@ public class ControlPlayer : MonoBehaviour {
     public AudioSource deadSound;
     static int lifes = 3;
     private bool isDead = false;
+    private bool isClimbing;
+    public float distance;
+    public LayerMask whatIsLadder;
 
 
     bool canShoot = true;
@@ -39,6 +42,10 @@ public class ControlPlayer : MonoBehaviour {
             SetCountText();
    pickupSound.Play();
 }
+        if (collision.gameObject.name.Equals("Ladder"))
+        {
+            Debug.Log("qwekpoqwjoip");
+        }
     }
 
 
@@ -80,6 +87,17 @@ public class ControlPlayer : MonoBehaviour {
             StartCoroutine(ShootingCooldown());
         }
     }
+    void FixedUpdate() {
+        RaycastHit2D hitInto = Physics2D.Raycast(transform.position, Vector2.up, distance, whatIsLadder);
+        if (hitInto.collider != null) {
+            if (Input.GetKeyDown(KeyCode.W)) {
+                isClimbing = true;
+            }
+        }
+        if (isClimbing == true) {
+            Debug.Log("climb test");
+        }
+    }
 
     IEnumerator ShootingCooldown()
     {
@@ -92,8 +110,7 @@ public class ControlPlayer : MonoBehaviour {
     private void OnDestroy()
     {
         isDead = true;
-            deadSound.Play();
-
+        deadSound.Play();
         panel.SetActive(true);
         backgroundMusic.Stop();
         
